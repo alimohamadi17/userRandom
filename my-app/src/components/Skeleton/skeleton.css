@@ -1,0 +1,26 @@
+.skeleton {
+    background: #ddd;
+    margin: 10px 0;
+    border-radius: 4px;
+
+}
+
+
+
+
+.skeleton.text {
+    width: 230px;
+    height: 30px;
+    border: 1px solid rgb(243, 226, 132);
+
+}
+
+.skeleton.img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    top: 10px;
+    left: 170px;
+    border: 1px solid rgb(243, 226, 132);
+}

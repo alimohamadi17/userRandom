@@ -1,0 +1,31 @@
+
+Assignment:
+
+Develop a React application that fetches and displays data from https://randomuser.me/api/. The following 4 values should be displayed: the user’s first and last name, image and country. Also arr a button to show and hide the data. When show is clicked a new different user is loaded.
+
+ Things to keep in mind:
+
+Both the functionality, code quality and styling are going to be evaluated and discussed in a follow-up interview
+We work with TypeScript, but accept solutions in both TypeScript and JavaScript (and even ReScript)
+Automated tests are optional
+The source code may be delivered as a zip-file, or simply a GitHub, CodeSandbox (or similar) repository
+External tools:
+
+As a Developer you are free to access any web resources but is expected to be able to explain and reason about the solution.
+
+ 
+
+Evaluation:
+
+The test is meant to evaluate programming and problem solving skills. Write the code in the manner you think is good practice and is comfortable with (coding standard, naming conventions, appropriate comments, data structures, etc).
+
+ 
+
+If you have any questions, please do not hesitate to get in touch. 
+
+
+
+Regards,
+Andrés.
+
+Recruiting powered by Teamtailor — Learn more
