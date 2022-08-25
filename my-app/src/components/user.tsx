@@ -1,40 +1,39 @@
-import React, { FC, useEffect, useState } from 'react'
-import { fetchUsers } from '../redux/userList'
-import { useAppSelector, useAppDispatch } from '../redux/Hooks/hook'
+import React, { useEffect, useState } from 'react'
 import './user.css'
-import SkeletonText from './Skeleton/skeletonText'
+import FetchUser from './FetchUser'
+
+import { useAppDispatch, useAppSelector } from '../redux/Hooks/hook'
+import { fetchUsers } from '../redux/userList'
 
 
 
 
+const Users = () => {
 
-const Users: FC = () => {
 
-  const [btnText, setBtnText] = useState('Hide Users');
+
   const [open, setOpen] = useState(false)
-  const dispatch = useAppDispatch()
   const { loading, userList } = useAppSelector(state => state.userLists)
-
+  const dispatch = useAppDispatch()
 
   //for fetching data at first time without any condition
   useEffect(() => {
+
+
     dispatch(fetchUsers())
     setOpen(true)
+
+    return () => {
+      fetchUsers()
+    }
   }, [dispatch])//[] for only run once
 
 
   //for fetching data after click button
   const handleUser = () => {
     setOpen(!open)
-    if (!open) {
-      dispatch(fetchUsers())
-      setBtnText("Hide User")
+    !open ? dispatch(fetchUsers()) : null
 
-    }
-    if (open) {
-      loading
-      setBtnText("Show User")
-    }
   }
   //end of handleUser
 
@@ -44,28 +43,9 @@ const Users: FC = () => {
       <div className="user-list" data-testid='userTest'>
 
 
-        {open &&
+        {(open) && (<FetchUser loading={loading} userList={userList} />)}
 
-          <div className='container'>{
-            loading ? <SkeletonText /> :
-
-              userList.map(user =>
-                <div key={user.id.value}>
-                  <div>
-                    <img className='img' src={user.picture.large} alt="user" />
-                  </div>
-                  <div className='userItem'>
-                    <div className='userText'>First Name : <b>{user.name.first}</b> </div>
-                    <div className='userText'>Last Name : <b>{user.name.last}</b></div>
-                    <div className='userText'>Country :  <b>{user.location.country}</b></div>
-                  </div>
-
-                </div>
-              )}
-          </div>
-        }
-
-        <button className='btn' onClick={handleUser}>click For : {btnText}</button>
+        <button className='btn' onClick={handleUser}>click For : {open ? "Hide User" : "Show User"}</button>
       </div>
     </>
   )

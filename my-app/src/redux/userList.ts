@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 //THis type from the fetch API(randomuser.me/api)
-type IUser = {
+export type IUser = {
     name: {
         first: string;
         last: string
